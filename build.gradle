@@ -1,19 +1,13 @@
 plugins {
     id 'java'
+    id 'jacoco'
     id 'org.springframework.boot' version '3.4.0'
     id 'io.spring.dependency-management' version '1.1.6'
-    id 'jacoco'  // ← ADICIONE O PLUGIN JACOCO
-    id 'org.sonarqube' version '5.1.0.4882'
+    id 'org.sonarqube' version '6.2.0.5505'
 }
 
 group = 'com.ourosapp'
 version = '0.0.1-SNAPSHOT'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
-}
 
 repositories {
     mavenCentral()
@@ -24,30 +18,18 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-sonar {
-    properties {
-        property 'sonar.host.url', 'https://sonarcloud.io'
-        property 'sonar.organization', System.getenv('SONAR_ORGANIZATION') ?: 'ouros-app'
-        property 'sonar.projectKey', System.getenv('SONAR_PROJECT_KEY') ?: "${System.getenv('GITHUB_REPOSITORY_OWNER')}_${System.getenv('GITHUB_REPOSITORY_NAME')}".toLowerCase()
-        property 'sonar.sources', 'src/main/java'
-        property 'sonar.tests', 'src/test/java'
-        property 'sonar.java.binaries', 'build/classes/java/main'
-        property 'sonar.java.test.binaries', 'build/classes/java/test'
-        property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/test/jacocoTestReport.xml'
-        property 'sonar.exclusions', '**/generated/**, **/model/**'
-    }
-}
-
 tasks.named('test') {
     useJUnitPlatform()
-    finalizedBy jacocoTestReport  // Isso agora funciona porque jacocoTestReport existe
 }
 
-// Mude de register para named (ou configure existente)
-tasks.named('jacocoTestReport', JacocoReport) {
-    dependsOn test
+tasks.named('jacocoTestReport') {
+    dependsOn tasks.named('test')
     reports {
         xml.required = true
         html.required = true
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
 }
