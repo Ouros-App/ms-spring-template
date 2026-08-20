@@ -1,5 +1,17 @@
 # ms-spring-template
 
+<!-- REPO-METADATA:START -->
+<div align="center">
+
+[![Repo Size](https://img.shields.io/github/repo-size/Ouros-App/ms-spring-template?style=flat-square&label=REPO%20SIZE)](https://github.com/Ouros-App/ms-spring-template)
+[![Languages](https://img.shields.io/github/languages/count/Ouros-App/ms-spring-template?style=flat-square&label=LANGUAGES)](https://github.com/Ouros-App/ms-spring-template/languages)
+[![Forks](https://img.shields.io/github/forks/Ouros-App/ms-spring-template?style=flat-square&label=FORKS)](https://github.com/Ouros-App/ms-spring-template/network/members)
+[![Issues](https://img.shields.io/github/issues/Ouros-App/ms-spring-template?style=flat-square&label=ISSUES)](https://github.com/Ouros-App/ms-spring-template/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/Ouros-App/ms-spring-template?style=flat-square&label=PULL%20REQUESTS)](https://github.com/Ouros-App/ms-spring-template/pulls)
+
+</div>
+<!-- REPO-METADATA:END -->
+
 Template de uma API REST com Spring Boot e Gradle.
 
 ## Status e escopo
@@ -115,3 +127,12 @@ Faça alterações em uma branch própria e use os templates de pull request dis
 ## Licença
 
 Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE).
+
+
+## Principais contribuidores
+
+<!-- CONTRIBUTORS:START -->
+- [@Nicolas25vlad](https://github.com/Nicolas25vlad) — 12 contribuições
+<!-- CONTRIBUTORS:END -->
+
+> Atualizado automaticamente semanalmente pelo workflow de metadados do README.
